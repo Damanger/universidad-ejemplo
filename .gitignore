@@ -1,1 +1,20 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+.astro/
+.vercel/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Local runtime submissions
+src/data/contact-messages.json
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+*.log

@@ -33,8 +33,9 @@ export const PUT: APIRoute = async ({ request, cookies }) => {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (err) {
+    const msg = err instanceof Error ? err.message : 'Error al guardar los cambios.';
     return new Response(
-      JSON.stringify({ ok: false, error: 'Error al guardar los cambios.' }),
+      JSON.stringify({ ok: false, error: msg }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }

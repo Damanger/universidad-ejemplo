@@ -1,12 +1,18 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AdminPanel from '../../components/admin/AdminPanel';
-import { getSiteContent } from '../../lib/content-store';
+import { getSiteContent, getStorageMode } from '../../lib/content-store';
 
 const content = await getSiteContent();
 const isAuthenticated = Astro.cookies.get('uant_admin_session')?.value === 'authenticated';
+const storageMode = getStorageMode();
 ---
 
 <BaseLayout content={content} title="Panel Administrativo" hideChrome={true}>
-  <AdminPanel client:load initialContent={content} isAuthenticated={isAuthenticated} />
+  <AdminPanel
+    client:load
+    initialContent={content}
+    isAuthenticated={isAuthenticated}
+    storageMode={storageMode}
+  />
 </BaseLayout>

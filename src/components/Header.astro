@@ -24,7 +24,7 @@ const isActive = (href: string) =>
 ---
 
 <header
-  class={`site-header fixed top-0 inset-x-0 z-50 ${transparentHero ? 'is-over-dark bg-transparent py-4' : 'bg-[#FAF8F4]/92 backdrop-blur-md border-b border-[#0C1E35]/8 py-3.5'}`}
+  class={`site-header fixed top-0 inset-x-0 z-40 ${transparentHero ? 'is-over-dark bg-transparent py-4' : 'bg-[#FAF8F4]/92 backdrop-blur-md border-b border-[#0C1E35]/8 py-3.5'}`}
   data-hero-transparent={transparentHero ? 'true' : 'false'}
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
@@ -86,7 +86,7 @@ const isActive = (href: string) =>
   <!-- Mobile Navigation Drawer -->
   <div
     id="mobile-menu-drawer"
-    class="lg:hidden fixed inset-x-0 top-[72px] mx-4 rounded-2xl bg-[#0C1E35] text-white shadow-2xl border border-[#C69D48]/30 overflow-hidden transition-all duration-300 opacity-0 pointer-events-none -translate-y-3"
+    class="hidden lg:hidden fixed inset-x-0 top-[72px] mx-4 rounded-2xl bg-[#0C1E35] text-white shadow-2xl border border-[#C69D48]/30 overflow-hidden transition-all duration-300"
   >
     <nav class="p-5 flex flex-col gap-1.5" aria-label="Navegación móvil">
       {navItems.map((item, idx) => (
@@ -165,9 +165,7 @@ const isActive = (href: string) =>
     const setState = (next: boolean) => {
       isOpen = next;
       toggle.setAttribute('aria-expanded', String(isOpen));
-      drawer.classList.toggle('opacity-0', !isOpen);
-      drawer.classList.toggle('pointer-events-none', !isOpen);
-      drawer.classList.toggle('-translate-y-3', !isOpen);
+      drawer.classList.toggle('hidden', !isOpen);
       openIcon?.classList.toggle('hidden', isOpen);
       closeIcon?.classList.toggle('hidden', !isOpen);
     };

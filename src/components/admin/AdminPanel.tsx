@@ -22,6 +22,7 @@ import type { SiteContent, ContactSubmission, AcademicDocument, AcademicEvent } 
 interface Props {
   initialContent: SiteContent;
   isAuthenticated: boolean;
+  storageMode?: 'vercel-blob' | 'local' | 'vercel-readonly';
 }
 
 type TabKey =
@@ -33,7 +34,11 @@ type TabKey =
   | 'contact'
   | 'inbox';
 
-export default function AdminPanel({ initialContent, isAuthenticated: initialAuth }: Props) {
+export default function AdminPanel({
+  initialContent,
+  isAuthenticated: initialAuth,
+  storageMode = 'local',
+}: Props) {
   const [authed, setAuthed] = useState(initialAuth);
   const [password, setPassword] = useState('');
   const [authError, setAuthError] = useState('');
@@ -290,10 +295,22 @@ export default function AdminPanel({ initialContent, isAuthenticated: initialAut
         </div>
       )}
 
+      {/* Storage status banner when deployed on Vercel without Blob yet */}
+      {storageMode === 'vercel-readonly' && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-6">
+          <div className="p-4 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-xs sm:text-sm flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <strong>Activa Vercel Blob para guardar cambios en la nube:</strong> En tu proyecto de Vercel ve a{' '}
+              <span className="font-semibold">Storage → Create Database → Blob</span> y vuelve a desplegar. Esto habilita guardar textos y subir imágenes/PDFs desde este panel.
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Main Layout */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 grid grid-cols-1 md:grid-cols-12 gap-7 items-start">
         {/* Sidebar Navigation */}
-        <aside className="lg:col-span-3 bg-white rounded-3xl p-3 border border-[#0C1E35]/10 shadow-sm space-y-1">
+        <aside className="md:col-span-4 lg:col-span-3 bg-white rounded-3xl p-3 border border-[#0C1E35]/10 shadow-sm space-y-1 md:sticky md:top-24">
           {tabs.map((t) => (
             <button
               key={t.key}
@@ -319,7 +336,7 @@ export default function AdminPanel({ initialContent, isAuthenticated: initialAut
         </aside>
 
         {/* Editor Area */}
-        <section className="lg:col-span-9 bg-white rounded-3xl p-6 sm:p-8 border border-[#0C1E35]/10 shadow-sm space-y-8">
+        <section className="md:col-span-8 lg:col-span-9 bg-white rounded-3xl p-6 sm:p-8 border border-[#0C1E35]/10 shadow-sm space-y-8">
           {/* TAB 1: BRAND & COLORS */}
           {activeTab === 'brand' && (
             <div className="space-y-6">
