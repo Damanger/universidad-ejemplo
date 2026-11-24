@@ -1,0 +1,378 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+:root {
+  --brand-primary: #0C1E35;
+  --brand-primary-dark: #071323;
+  --brand-accent: #C69D48;
+  --brand-surface: #FAF8F4;
+  --brand-ink: #132238;
+  --brand-muted: #52647B;
+}
+
+html {
+  scroll-behavior: auto;
+  background-color: var(--brand-surface);
+  color: var(--brand-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--brand-surface);
+}
+
+.font-display {
+  font-family: var(--font-serif);
+}
+
+/* Top Gold Reading Progress Hairline */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--brand-accent), #E6C77B, var(--brand-accent));
+  z-index: 90;
+  pointer-events: none;
+  box-shadow: 0 0 12px color-mix(in srgb, var(--brand-accent) 55%, transparent);
+}
+
+/* Smart Header Morph */
+.site-header {
+  transition: background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              backdrop-filter 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              padding 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-header.is-scrolled {
+  background-color: rgba(250, 248, 244, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 35px -15px rgba(12, 30, 53, 0.14);
+  border-bottom: 1px solid rgba(198, 157, 72, 0.22);
+}
+
+/* Animated Navigation Underline */
+.nav-link {
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: var(--brand-accent);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 999px;
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Magnetic & Shimmer Primary Buttons */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--brand-primary);
+  color: #FFFFFF;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.3s ease;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 100%
+  );
+  transition: left 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-primary:hover::before {
+  left: 140%;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 14px 32px -10px color-mix(in srgb, var(--brand-primary) 55%, transparent);
+}
+
+.btn-gold {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--brand-accent), color-mix(in srgb, var(--brand-accent) 82%, #8A6620));
+  color: var(--brand-primary-dark);
+  font-weight: 600;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.3s ease;
+}
+
+.btn-gold::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
+  );
+  transition: left 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-gold:hover::before {
+  left: 140%;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 14px 32px -10px color-mix(in srgb, var(--brand-accent) 60%, transparent);
+  filter: brightness(1.04);
+}
+
+.btn-arrow svg {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-arrow:hover svg {
+  transform: translateX(4px);
+}
+
+/* Interactive Spotlight & Elevation Cards */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid rgba(12, 30, 53, 0.08);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.35s ease,
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--brand-accent) 14%, transparent),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+.spotlight-card:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--brand-accent) 45%, transparent);
+  box-shadow: 0 22px 45px -20px rgba(12, 30, 53, 0.16);
+}
+
+/* Dark Spotlight Card variant */
+.spotlight-card-dark {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.35s ease,
+              background-color 0.35s ease;
+}
+
+.spotlight-card-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    380px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--brand-accent) 22%, transparent),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.spotlight-card-dark:hover::before {
+  opacity: 1;
+}
+
+.spotlight-card-dark:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--brand-accent) 50%, transparent);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* Scroll Reveal Microanimations */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  filter: blur(4px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal="left"] {
+  transform: translateX(-28px);
+}
+
+[data-reveal="right"] {
+  transform: translateX(28px);
+}
+
+[data-reveal="scale"] {
+  transform: scale(0.95);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+/* Subtle Hero Image Ken Burns */
+@keyframes kenBurnsSlow {
+  0% {
+    transform: scale(1.02);
+  }
+  50% {
+    transform: scale(1.075);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+.hero-kenburns {
+  animation: kenBurnsSlow 26s ease-in-out infinite;
+}
+
+/* SVG Institutional Crest Draw */
+@keyframes crestStrokeDraw {
+  from {
+    stroke-dashoffset: 240;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.crest-path {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 0;
+  animation: crestStrokeDraw 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Floating WhatsApp Pulse */
+@keyframes whatsappPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.48);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.48);
+    opacity: 0;
+  }
+}
+
+.whatsapp-ring {
+  animation: whatsappPulse 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+/* Subtle Floating Ornament */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 5.5s ease-in-out infinite;
+}
+
+/* Image hover zoom frame */
+.img-zoom-frame {
+  overflow: hidden;
+}
+
+.img-zoom-frame img {
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.img-zoom-frame:hover img {
+  transform: scale(1.06);
+}
+
+/* Ornamental Gold Divider */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--brand-accent) 45%, transparent), transparent);
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  .hero-kenburns,
+  .whatsapp-ring,
+  .animate-float-gentle,
+  .crest-path {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageBanner from '../components/PageBanner.astro';
+import PdfDocumentsHub from '../components/interactive/PdfDocumentsHub';
+import { getSiteContent } from '../lib/content-store';
+
+const content = await getSiteContent();
+const { academicLife } = content;
+---
+
+<BaseLayout
+  content={content}
+  title="Vida Académica"
+  description={`Consulta y descarga el reglamento institucional, calendario escolar, plan de estudios en PDF y cartelera de eventos académicos de ${content.brand.name}.`}
+>
+  <PageBanner
+    eyebrow="Comunidad Universitaria"
+    title="Vida Académica"
+    subtitle={academicLife.introDescription}
+    breadcrumb="Vida Académica"
+  />
+
+  <!-- Consulta y Descarga de Documentos PDF -->
+  <section id="documentos" class="py-16 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div class="max-w-3xl space-y-3" data-reveal>
+        <p class="text-xs font-semibold uppercase tracking-[0.22em]" style="color: var(--brand-accent);">
+          Repositorio Oficial en PDF
+        </p>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold text-[#0C1E35]">
+          {academicLife.introTitle}
+        </h2>
+        <p class="text-sm sm:text-base text-[#52647B]">
+          Visualiza cualquier documento directamente en pantalla o descárgalo en formato PDF para consultarlo sin conexión.
+        </p>
+      </div>
+
+      <PdfDocumentsHub client:visible documents={academicLife.documents} />
+    </div>
+  </section>
+
+  <!-- Cartelera de Eventos Académicos -->
+  <section id="eventos" class="py-16 sm:py-24 bg-white border-t border-[#0C1E35]/8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6" data-reveal>
+        <div class="space-y-2 max-w-2xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.22em]" style="color: var(--brand-accent);">
+            Agenda Institucional
+          </p>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold text-[#0C1E35]">
+            Cartelera de Eventos Académicos
+          </h2>
+        </div>
+        <a
+          href="/contacto"
+          class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-[#0C1E35] hover:text-[#C69D48] transition-colors"
+        >
+          <span>Confirmar asistencia a un evento →</span>
+        </a>
+      </div>
+
+      <div class="space-y-5">
+        {academicLife.events.map((ev, idx) => (
+          <article
+            data-spotlight
+            data-reveal
+            data-delay={String(idx * 80)}
+            class="spotlight-card rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center gap-6 sm:gap-8"
+          >
+            <!-- Architectural Calendar Badge -->
+            <div class="w-20 h-22 rounded-2xl bg-[#0C1E35] text-white flex flex-col items-center justify-center shrink-0 border border-[#C69D48]/40 shadow-md">
+              <span class="text-[11px] uppercase tracking-[0.2em] text-[#E6C77B] font-bold">
+                {ev.monthLabel}
+              </span>
+              <span class="font-display text-4xl font-bold leading-none mt-1">
+                {ev.dayLabel}
+              </span>
+            </div>
+
+            <!-- Event Info -->
+            <div class="flex-1 space-y-2">
+              <div class="flex flex-wrap items-center gap-2.5 text-xs">
+                <span class="px-3 py-1 rounded-full font-bold uppercase tracking-wider bg-[#C69D48]/18 text-[#8A6620]">
+                  {ev.category}
+                </span>
+                <span class="text-[#52647B] font-medium">🕒 {ev.time}</span>
+                <span class="text-[#52647B] font-medium">📍 {ev.location}</span>
+              </div>
+              <h3 class="font-display text-2xl sm:text-3xl font-bold text-[#0C1E35] leading-snug">
+                {ev.title}
+              </h3>
+              <p class="text-sm text-[#52647B] leading-relaxed">{ev.description}</p>
+              <p class="text-xs font-semibold text-[#0C1E35] pt-1">
+                Imparte / Coordina: <span class="font-normal text-[#52647B]">{ev.speaker}</span>
+              </p>
+            </div>
+
+            <!-- Action -->
+            <div class="shrink-0">
+              <a
+                href="/contacto"
+                data-magnetic="0.12"
+                class="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs uppercase tracking-[0.14em] btn-primary"
+              >
+                <span>Registrarse</span>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

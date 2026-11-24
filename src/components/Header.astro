@@ -1,0 +1,182 @@
+---
+import type { SiteContent } from '../types/content';
+import BrandCrest from './BrandCrest.astro';
+
+interface Props {
+  content: SiteContent;
+  transparentHero?: boolean;
+}
+
+const { content, transparentHero = false } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { label: 'Inicio', href: '/' },
+  { label: 'La Universidad', href: '/universidad' },
+  { label: 'Oferta Educativa', href: '/oferta-educativa' },
+  { label: 'Admisiones', href: '/admisiones' },
+  { label: 'Vida Académica', href: '/vida-academica' },
+  { label: 'Contacto', href: '/contacto' },
+];
+
+const isActive = (href: string) =>
+  href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+---
+
+<header
+  class={`site-header fixed top-0 inset-x-0 z-50 ${transparentHero ? 'is-over-dark bg-transparent py-4' : 'bg-[#FAF8F4]/92 backdrop-blur-md border-b border-[#0C1E35]/8 py-3.5'}`}
+  data-hero-transparent={transparentHero ? 'true' : 'false'}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+    <!-- Institutional Brand -->
+    <a href="/" class="group flex items-center gap-3 shrink-0 focus:outline-none">
+      <BrandCrest logoUrl={content.brand.logoUrl} shortName={content.brand.shortName} size="md" light={transparentHero} />
+      <div class="leading-tight">
+        <span class="header-brand-title block font-display text-lg sm:text-xl font-bold tracking-tight transition-colors duration-300">
+          {content.brand.name}
+        </span>
+        <span class="header-brand-sub block text-[11px] uppercase tracking-[0.2em] font-medium opacity-80 transition-colors duration-300">
+          {content.brand.locationLabel}
+        </span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden lg:flex items-center gap-7" aria-label="Navegación principal">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class={`nav-link header-nav-link text-[14px] font-medium tracking-wide ${isActive(item.href) ? 'is-active' : ''}`}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Desktop CTA + Mobile Toggle -->
+    <div class="flex items-center gap-3">
+      <a
+        href="/contacto"
+        data-magnetic="0.14"
+        class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.14em] btn-gold btn-arrow shadow-sm"
+      >
+        <span>Admisiones</span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" />
+        </svg>
+      </a>
+
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+        class="lg:hidden header-menu-btn inline-flex items-center justify-center w-11 h-11 rounded-xl border transition-colors"
+      >
+        <svg id="menu-icon-open" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h12" />
+        </svg>
+        <svg id="menu-icon-close" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" d="M6 6l12 12M18 6l-12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div
+    id="mobile-menu-drawer"
+    class="lg:hidden fixed inset-x-0 top-[72px] mx-4 rounded-2xl bg-[#0C1E35] text-white shadow-2xl border border-[#C69D48]/30 overflow-hidden transition-all duration-300 opacity-0 pointer-events-none -translate-y-3"
+  >
+    <nav class="p-5 flex flex-col gap-1.5" aria-label="Navegación móvil">
+      {navItems.map((item, idx) => (
+        <a
+          href={item.href}
+          class={`px-4 py-3 rounded-xl text-base font-medium transition-all flex items-center justify-between ${
+            isActive(item.href)
+              ? 'bg-[#C69D48]/20 text-[#E6C77B] border border-[#C69D48]/30'
+              : 'text-white/90 hover:bg-white/8'
+          }`}
+          style={`transition-delay: ${idx * 35}ms`}
+        >
+          <span>{item.label}</span>
+          <svg class="w-4 h-4 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m9 6 6 6-6 6" />
+          </svg>
+        </a>
+      ))}
+      <div class="pt-3 mt-2 border-t border-white/10 flex flex-col gap-2">
+        <a
+          href="/contacto"
+          class="w-full py-3 rounded-xl text-center text-sm uppercase tracking-wider btn-gold"
+        >
+          Solicitar Información
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header.is-over-dark .header-brand-title,
+  .site-header.is-over-dark .header-nav-link,
+  .site-header.is-over-dark .header-menu-btn {
+    color: #FFFFFF;
+  }
+  .site-header.is-over-dark .header-brand-sub {
+    color: #E6C77B;
+  }
+  .site-header.is-over-dark .header-menu-btn {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .site-header.is-over-dark .header-nav-link:hover,
+  .site-header.is-over-dark .header-nav-link.is-active {
+    color: #E6C77B;
+  }
+
+  .site-header:not(.is-over-dark) .header-brand-title,
+  .site-header:not(.is-over-dark) .header-nav-link,
+  .site-header:not(.is-over-dark) .header-menu-btn {
+    color: var(--brand-primary);
+  }
+  .site-header:not(.is-over-dark) .header-brand-sub {
+    color: var(--brand-muted);
+  }
+  .site-header:not(.is-over-dark) .header-menu-btn {
+    border-color: rgba(12, 30, 53, 0.14);
+    background: rgba(12, 30, 53, 0.04);
+  }
+  .site-header:not(.is-over-dark) .header-nav-link:hover,
+  .site-header:not(.is-over-dark) .header-nav-link.is-active {
+    color: var(--brand-accent);
+  }
+</style>
+
+<script>
+  function setupMobileMenu() {
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const drawer = document.getElementById('mobile-menu-drawer');
+    const openIcon = document.getElementById('menu-icon-open');
+    const closeIcon = document.getElementById('menu-icon-close');
+    if (!toggle || !drawer) return;
+
+    let isOpen = false;
+    const setState = (next: boolean) => {
+      isOpen = next;
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      drawer.classList.toggle('opacity-0', !isOpen);
+      drawer.classList.toggle('pointer-events-none', !isOpen);
+      drawer.classList.toggle('-translate-y-3', !isOpen);
+      openIcon?.classList.toggle('hidden', isOpen);
+      closeIcon?.classList.toggle('hidden', !isOpen);
+    };
+
+    toggle.onclick = () => setState(!isOpen);
+    drawer.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setState(false));
+    });
+  }
+
+  document.addEventListener('astro:page-load', setupMobileMenu);
+</script>

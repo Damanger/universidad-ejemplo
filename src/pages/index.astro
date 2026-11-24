@@ -1,0 +1,444 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getSiteContent } from '../lib/content-store';
+
+const content = await getSiteContent();
+const waUrl = `https://wa.me/${content.contact.whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(content.contact.whatsappMessage)}`;
+---
+
+<BaseLayout content={content} transparentHero={true}>
+  <!-- 1. HERO INSTITUTIONAL BANNER -->
+  <section class="relative min-h-[94vh] flex items-center overflow-hidden bg-[#071323] text-white">
+    <!-- Background Campus Image with Ken Burns & Parallax -->
+    <div class="absolute inset-0 z-0 overflow-hidden" data-parallax="0.16">
+      <img
+        src={content.home.heroImage}
+        alt={`Campus de ${content.brand.name}`}
+        class="w-full h-[112%] -mt-[4%] object-cover object-center hero-kenburns opacity-75"
+      />
+      <div
+        class="absolute inset-0"
+        style="background: linear-gradient(108deg, rgba(7,19,35,0.92) 0%, rgba(12,30,53,0.78) 52%, rgba(7,19,35,0.52) 100%);"
+      ></div>
+      <div
+        class="absolute inset-0"
+        style="background: radial-gradient(circle at 80% 25%, rgba(198,157,72,0.18), transparent 48%);"
+      ></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-8 space-y-7">
+          <!-- Animated Status Badge -->
+          <div data-reveal data-delay="40">
+            <a
+              href="/admisiones"
+              class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-[#C69D48]/45 text-xs sm:text-sm font-medium text-[#F5DFAA] hover:bg-white/15 transition-colors"
+            >
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E6C77B] opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#C69D48]"></span>
+              </span>
+              <span>{content.home.heroBadge}</span>
+            </a>
+          </div>
+
+          <!-- Slogan & Main Headline -->
+          <div class="space-y-4">
+            <p
+              class="text-xs sm:text-sm uppercase tracking-[0.26em] font-semibold"
+              style="color: var(--brand-accent);"
+              data-reveal
+              data-delay="90"
+            >
+              {content.brand.slogan}
+            </p>
+            <h1
+              class="font-display text-4xl sm:text-6xl lg:text-[4.25rem] font-bold leading-[1.04] tracking-tight text-white"
+              data-reveal
+              data-delay="140"
+            >
+              {content.home.heroTitle}
+            </h1>
+            <p
+              class="text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl"
+              data-reveal
+              data-delay="200"
+            >
+              {content.home.heroSubtitle}
+            </p>
+          </div>
+
+          <!-- Primary & Secondary Access Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-2" data-reveal data-delay="260">
+            <a
+              href="/oferta-educativa"
+              data-magnetic="0.16"
+              class="inline-flex items-center gap-2.5 px-7 py-4 rounded-full text-xs sm:text-sm uppercase tracking-[0.14em] btn-gold btn-arrow shadow-xl"
+            >
+              <span>{content.home.primaryCtaLabel}</span>
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" />
+              </svg>
+            </a>
+            <a
+              href="/contacto"
+              data-magnetic="0.14"
+              class="inline-flex items-center gap-2.5 px-7 py-4 rounded-full text-xs sm:text-sm uppercase tracking-[0.14em] font-semibold bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/25 text-white transition-all"
+            >
+              <span>{content.home.secondaryCtaLabel}</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Floating Institutional Quick-Card -->
+        <div class="lg:col-span-4 hidden lg:block" data-reveal="right" data-delay="300">
+          <div
+            data-spotlight
+            class="spotlight-card-dark rounded-3xl p-6 backdrop-blur-xl animate-float-gentle space-y-4"
+          >
+            <div class="flex items-center justify-between border-b border-white/10 pb-3.5">
+              <span class="text-[11px] uppercase tracking-[0.2em] text-[#E6C77B] font-semibold">
+                Programa Fundacional
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#C69D48]/20 text-[#F5DFAA]">
+                {content.program.shortLabel}
+              </span>
+            </div>
+            <h2 class="font-display text-2xl font-bold text-white leading-snug">
+              {content.program.name}
+            </h2>
+            <div class="grid grid-cols-2 gap-3 pt-1 text-xs">
+              <div class="p-3 rounded-xl bg-white/6 border border-white/10">
+                <p class="text-white/55">Duración</p>
+                <p class="font-semibold text-white mt-0.5">{content.program.duration}</p>
+              </div>
+              <div class="p-3 rounded-xl bg-white/6 border border-white/10">
+                <p class="text-white/55">Modalidad</p>
+                <p class="font-semibold text-white mt-0.5">{content.program.modality}</p>
+              </div>
+            </div>
+            <a
+              href="/admisiones"
+              class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#E6C77B] hover:text-white transition-colors pt-1"
+            >
+              <span>Ver convocatoria vigente</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Down Micro-Indicator -->
+    <div class="hidden sm:flex absolute bottom-7 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-2 text-white/55">
+      <span class="text-[10px] uppercase tracking-[0.25em]">Explorar</span>
+      <div class="w-5 h-8 rounded-full border border-white/30 flex justify-center pt-1.5">
+        <span class="w-1 h-2 rounded-full bg-[#C69D48] animate-bounce"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ANIMATED METRICS RIBBON -->
+  <section class="relative -mt-8 z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 p-6 sm:p-8 rounded-3xl bg-white shadow-[0_24px_60px_-24px_rgba(12,30,53,0.18)] border border-[#0C1E35]/8"
+      data-reveal="scale"
+    >
+      {content.home.stats.map((stat, idx) => (
+        <div
+          class={`text-center sm:text-left space-y-1 ${idx > 0 ? 'lg:border-l lg:border-[#0C1E35]/10 lg:pl-6' : ''}`}
+        >
+          <p
+            class="font-display text-4xl sm:text-5xl font-bold"
+            style="color: var(--brand-primary);"
+            data-counter={stat.value}
+            data-suffix={stat.suffix}
+          >
+            {stat.value}{stat.suffix}
+          </p>
+          <p class="text-xs sm:text-sm text-[#52647B] leading-snug">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 3. BREVE DESCRIPCIÓN DE LA INSTITUCIÓN -->
+  <section class="py-20 sm:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div class="lg:col-span-6 space-y-6" data-reveal="left">
+          <p class="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.22em]" style="color: var(--brand-accent);">
+            <span class="w-8 h-[1px]" style="background: var(--brand-accent);"></span>
+            {content.home.introEyebrow}
+          </p>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold text-[#0C1E35] leading-[1.1]">
+            {content.home.introTitle}
+          </h2>
+          <p class="text-base sm:text-lg text-[#52647B] leading-relaxed">
+            {content.home.introDescription}
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div data-spotlight class="spotlight-card p-5 rounded-2xl space-y-1.5">
+              <p class="text-xs font-bold uppercase tracking-wider text-[#C69D48]">Misión</p>
+              <p class="text-sm text-[#52647B] line-clamp-3 leading-relaxed">{content.university.mission}</p>
+            </div>
+            <div data-spotlight class="spotlight-card p-5 rounded-2xl space-y-1.5">
+              <p class="text-xs font-bold uppercase tracking-wider text-[#C69D48]">Visión</p>
+              <p class="text-sm text-[#52647B] line-clamp-3 leading-relaxed">{content.university.vision}</p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <a
+              href="/universidad"
+              data-magnetic="0.12"
+              class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full text-xs uppercase tracking-[0.14em] btn-primary btn-arrow"
+            >
+              <span>Conoce nuestra historia y valores</span>
+              <svg class="w-4 h-4 text-[#E6C77B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Architectural Layered Image Composition -->
+        <div class="lg:col-span-6 relative" data-reveal="right">
+          <div class="img-zoom-frame rounded-3xl shadow-2xl border border-[#0C1E35]/10 aspect-[4/3]">
+            <img
+              src="/images/campus-library.jpg"
+              alt="Biblioteca y espacios colaborativos"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="hidden sm:block absolute -bottom-6 -left-6 max-w-xs p-5 rounded-2xl bg-[#0C1E35] text-white shadow-2xl border border-[#C69D48]/35">
+            <p class="text-[11px] uppercase tracking-[0.2em] text-[#E6C77B] font-semibold">
+              Fundada en {content.brand.foundedYear}
+            </p>
+            <p class="font-display text-xl font-bold mt-1">
+              Atención personalizada y excelencia sin masificación.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PRESENTACIÓN DESTACADA DE LA LICENCIATURA -->
+  <section class="py-20 sm:py-28 relative overflow-hidden text-white" style="background: linear-gradient(145deg, var(--brand-primary) 0%, var(--brand-primary-dark) 100%);">
+    <div
+      class="pointer-events-none absolute top-0 right-0 w-[34rem] h-[34rem] rounded-full opacity-15 blur-3xl"
+      style="background: var(--brand-accent);"
+    ></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5" data-reveal="scale">
+          <div class="img-zoom-frame rounded-3xl overflow-hidden border border-white/15 shadow-2xl aspect-[4/3]">
+            <img
+              src={content.program.heroImage}
+              alt={content.program.name}
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-6" data-reveal>
+          <p class="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.22em]" style="color: var(--brand-accent);">
+            <span class="w-8 h-[1px]" style="background: var(--brand-accent);"></span>
+            {content.home.featuredDegreeEyebrow}
+          </p>
+
+          <h2 class="font-display text-3xl sm:text-5xl font-bold leading-[1.08] text-white">
+            {content.program.name}
+          </h2>
+
+          <p class="text-base sm:text-lg text-white/78 leading-relaxed">
+            {content.home.featuredDegreeSummary}
+          </p>
+
+          <!-- Key Program Pills -->
+          <div class="flex flex-wrap gap-3 pt-1">
+            <span class="px-4 py-2 rounded-full text-xs font-semibold bg-white/10 border border-white/15 text-[#F5DFAA]">
+              ⏱ {content.program.duration}
+            </span>
+            <span class="px-4 py-2 rounded-full text-xs font-semibold bg-white/10 border border-white/15 text-[#F5DFAA]">
+              🏛 {content.program.modality}
+            </span>
+            <span class="px-4 py-2 rounded-full text-xs font-semibold bg-white/10 border border-white/15 text-[#F5DFAA]">
+              🎓 Grado de Licenciatura
+            </span>
+          </div>
+
+          <!-- Highlights List -->
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            {content.home.featuredHighlights.map((hl) => (
+              <li class="flex items-start gap-2.5 text-sm text-white/85">
+                <span class="mt-1 w-4 h-4 rounded-full bg-[#C69D48]/25 text-[#E6C77B] flex items-center justify-center text-[10px] shrink-0">✓</span>
+                <span>{hl}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="flex flex-wrap items-center gap-4 pt-4">
+            <a
+              href="/oferta-educativa"
+              data-magnetic="0.15"
+              class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-xs uppercase tracking-[0.14em] btn-gold btn-arrow"
+            >
+              <span>Ver Plan de Estudios Completo</span>
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" />
+              </svg>
+            </a>
+            <a
+              href="/admisiones"
+              class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs uppercase tracking-[0.14em] font-semibold border border-white/25 text-white hover:bg-white/10 transition-colors"
+            >
+              <span>Requisitos de Admisión</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ACCESOS RÁPIDOS: ADMISIONES, DOCUMENTOS PDF Y EVENTOS -->
+  <section class="py-20 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6" data-reveal>
+        <div class="space-y-3 max-w-2xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.22em]" style="color: var(--brand-accent);">
+            Accesos Directos
+          </p>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold text-[#0C1E35] leading-tight">
+            Todo lo que necesitas a un clic de distancia
+          </h2>
+        </div>
+        <a href="/vida-academica" class="text-xs font-semibold uppercase tracking-[0.16em] text-[#0C1E35] hover:text-[#C69D48] transition-colors">
+          Ir a Vida Académica →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a
+          href="/admisiones"
+          data-spotlight
+          data-reveal
+          data-delay="0"
+          class="spotlight-card rounded-3xl p-7 flex flex-col justify-between gap-6 group"
+        >
+          <div class="space-y-4">
+            <span class="inline-flex px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800">
+              {content.admissions.announcementStatus}
+            </span>
+            <h3 class="font-display text-2xl sm:text-3xl font-bold text-[#0C1E35] group-hover:text-[#C69D48] transition-colors">
+              Convocatoria y Admisiones
+            </h3>
+            <p class="text-sm text-[#52647B] leading-relaxed">
+              Consulta requisitos, documentación interactiva, fechas importantes y pasos para iniciar tu inscripción.
+            </p>
+          </div>
+          <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0C1E35]">
+            <span>Explorar admisiones</span>
+            <span class="transition-transform group-hover:translate-x-1.5">→</span>
+          </span>
+        </a>
+
+        <a
+          href="/vida-academica#documentos"
+          data-spotlight
+          data-reveal
+          data-delay="90"
+          class="spotlight-card rounded-3xl p-7 flex flex-col justify-between gap-6 group"
+        >
+          <div class="space-y-4">
+            <span class="inline-flex px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-[#C69D48]/18 text-[#8A6620]">
+              {content.academicLife.documents.length} PDFs Oficiales
+            </span>
+            <h3 class="font-display text-2xl sm:text-3xl font-bold text-[#0C1E35] group-hover:text-[#C69D48] transition-colors">
+              Reglamento y Calendario PDF
+            </h3>
+            <p class="text-sm text-[#52647B] leading-relaxed">
+              Visualiza en línea o descarga el reglamento institucional, calendario escolar y plan de estudios oficial.
+            </p>
+          </div>
+          <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0C1E35]">
+            <span>Consultar documentos</span>
+            <span class="transition-transform group-hover:translate-x-1.5">→</span>
+          </span>
+        </a>
+
+        <a
+          href="/vida-academica#eventos"
+          data-spotlight
+          data-reveal
+          data-delay="180"
+          class="spotlight-card rounded-3xl p-7 flex flex-col justify-between gap-6 group"
+        >
+          <div class="space-y-4">
+            <span class="inline-flex px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-[#0C1E35]/10 text-[#0C1E35]">
+              Cartelera Académica
+            </span>
+            <h3 class="font-display text-2xl sm:text-3xl font-bold text-[#0C1E35] group-hover:text-[#C69D48] transition-colors">
+              Eventos y Open House
+            </h3>
+            <p class="text-sm text-[#52647B] leading-relaxed">
+              Participa en conferencias magistrales, talleres vivenciales y recorridos guiados por nuestro campus en Oaxaca.
+            </p>
+          </div>
+          <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0C1E35]">
+            <span>Ver cartelera</span>
+            <span class="transition-transform group-hover:translate-x-1.5">→</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CTA BAND: CONTACTO Y WHATSAPP -->
+  <section class="pb-20 sm:pb-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        data-reveal="scale"
+        class="relative rounded-[2rem] overflow-hidden p-8 sm:p-14 text-white flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8"
+        style="background: linear-gradient(125deg, var(--brand-primary) 0%, #163256 100%);"
+      >
+        <div class="pointer-events-none absolute -right-20 -bottom-24 w-80 h-80 rounded-full opacity-20 blur-3xl" style="background: var(--brand-accent);"></div>
+
+        <div class="space-y-3 max-w-2xl relative z-10">
+          <p class="text-xs font-semibold uppercase tracking-[0.22em] text-[#E6C77B]">
+            Atención Personalizada
+          </p>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold leading-tight">
+            ¿Listo para dar el siguiente paso en tu futuro profesional?
+          </h2>
+          <p class="text-sm sm:text-base text-white/75 leading-relaxed">
+            Agenda una visita guiada al campus, resuelve tus dudas sobre becas o solicita la guía completa de admisión.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3.5 relative z-10 shrink-0">
+          <a
+            href="/contacto"
+            data-magnetic="0.14"
+            class="px-7 py-3.5 rounded-full text-xs uppercase tracking-[0.14em] btn-gold"
+          >
+            Ir a Contacto
+          </a>
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3.5 rounded-full text-xs uppercase tracking-[0.14em] font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors"
+          >
+            WhatsApp Directo
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

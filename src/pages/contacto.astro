@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageBanner from '../components/PageBanner.astro';
+import ContactForm from '../components/interactive/ContactForm';
+import { getSiteContent } from '../lib/content-store';
+
+const content = await getSiteContent();
+const { contact } = content;
+const waUrl = `https://wa.me/${contact.whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(contact.whatsappMessage)}`;
+---
+
+<BaseLayout
+  content={content}
+  title="Contacto"
+  description={`Comunícate con ${content.brand.name} en Oaxaca. Dirección, teléfono, correo institucional, horarios, WhatsApp y mapa de ubicación.`}
+>
+  <PageBanner
+    eyebrow="Atención a Aspirantes y Público"
+    title="Contacto y Ubicación"
+    subtitle="Estamos para orientarte en cada paso. Escríbenos por formulario, WhatsApp o visítanos en nuestro campus en Oaxaca."
+    breadcrumb="Contacto"
+  />
+
+  <!-- Contact Cards + Interactive Form -->
+  <section class="py-16 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <!-- Left: Institutional Contact Information -->
+        <div class="lg:col-span-5 space-y-5">
+          <div data-spotlight data-reveal class="spotlight-card rounded-3xl p-6 space-y-2">
+            <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-[#C69D48]">Dirección Física</p>
+            <p class="font-display text-2xl font-bold text-[#0C1E35]">{contact.address}</p>
+            <p class="text-sm text-[#52647B]">{contact.cityState}</p>
+            <a
+              href={contact.mapsDirectionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0C1E35] hover:text-[#C69D48] pt-1 transition-colors"
+            >
+              <span>Abrir indicaciones en Google Maps →</span>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+            <div data-spotlight data-reveal data-delay="70" class="spotlight-card rounded-3xl p-6 space-y-1.5">
+              <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-[#C69D48]">Teléfono</p>
+              <a
+                href={`tel:${contact.phone.replace(/[^\d+]/g, '')}`}
+                class="font-display text-2xl font-bold text-[#0C1E35] hover:text-[#C69D48] transition-colors block"
+              >
+                {contact.phone}
+              </a>
+            </div>
+
+            <div data-spotlight data-reveal data-delay="120" class="spotlight-card rounded-3xl p-6 space-y-1.5">
+              <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-[#C69D48]">Correo Institucional</p>
+              <a
+                href={`mailto:${contact.email}`}
+                class="text-base font-bold text-[#0C1E35] hover:text-[#C69D48] transition-colors break-all block"
+              >
+                {contact.email}
+              </a>
+            </div>
+          </div>
+
+          <div data-spotlight data-reveal data-delay="170" class="spotlight-card rounded-3xl p-6 space-y-2">
+            <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-[#C69D48]">Horarios de Atención</p>
+            <p class="text-sm text-[#132238] leading-relaxed font-medium">{contact.officeHours}</p>
+          </div>
+
+          <!-- Direct WhatsApp Card -->
+          <div
+            data-reveal
+            data-delay="220"
+            class="rounded-3xl p-6 bg-[#0C1E35] text-white space-y-4 border border-[#C69D48]/30"
+          >
+            <div class="space-y-1">
+              <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-[#E6C77B]">Respuesta Rápida</p>
+              <h3 class="font-display text-2xl font-bold">Acceso Directo a WhatsApp</h3>
+              <p class="text-xs text-white/75 leading-relaxed">
+                ¿Prefieres escribirnos desde tu celular? Un asesor de admisiones atenderá tus dudas al instante.
+              </p>
+            </div>
+            <a
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full py-3.5 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-[0.14em] flex items-center justify-center gap-2 transition-colors"
+            >
+              <span>Iniciar conversación en WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Contact Form -->
+        <div class="lg:col-span-7" data-reveal="right">
+          <ContactForm client:visible recipientEmail={contact.email} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Maps Location Integration -->
+  <section class="pb-20 sm:pb-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4" data-reveal>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.22em]" style="color: var(--brand-accent);">
+            Mapa de Ubicación
+          </p>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-[#0C1E35]">
+            Encuéntranos en Oaxaca de Juárez
+          </h2>
+        </div>
+        <a
+          href={contact.mapsDirectionsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-xs font-bold uppercase tracking-[0.14em] text-[#0C1E35] hover:text-[#C69D48] transition-colors"
+        >
+          Ver en Google Maps →
+        </a>
+      </div>
+
+      <div
+        data-reveal="scale"
+        class="rounded-3xl overflow-hidden border border-[#0C1E35]/12 shadow-xl bg-white h-[400px] sm:h-[460px]"
+      >
+        <iframe
+          src={contact.mapsEmbedUrl}
+          title={`Mapa de ubicación de ${content.brand.name}`}
+          class="w-full h-full border-0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

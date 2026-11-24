@@ -1,0 +1,455 @@
+{
+  "brand": {
+    "name": "Universidad de Antequera",
+    "shortName": "UANT",
+    "slogan": "Sabiduría que trasciende, raíces que inspiran.",
+    "foundedYear": "2026",
+    "locationLabel": "Oaxaca de Juárez, Oaxaca",
+    "logoUrl": "",
+    "colors": {
+      "primary": "#0C1E35",
+      "primaryDark": "#071323",
+      "accent": "#C69D48",
+      "surface": "#FAF8F4"
+    }
+  },
+  "home": {
+    "heroBadge": "Convocatoria de Admisión 2026–2027 Abierta",
+    "heroTitle": "Formamos líderes con visión global y compromiso con Oaxaca",
+    "heroSubtitle": "Una universidad de nueva generación diseñada para ofrecer excelencia académica, mentoría cercana y formación práctica de alto impacto desde el primer semestre.",
+    "heroImage": "/images/hero-campus.jpg",
+    "introEyebrow": "Identidad Institucional",
+    "introTitle": "Educación superior moderna, cercana y rigurosa",
+    "introDescription": "La Universidad de Antequera nace en Oaxaca con la vocación de transformar el talento joven en profesionales íntegros, creativos y preparados para liderar organizaciones sostenibles. Combinamos rigor académico, acompañamiento personalizado y una arquitectura educativa contemporánea.",
+    "stats": [
+      { "value": 8, "suffix": "", "label": "Semestres de formación integral" },
+      { "value": 100, "suffix": "%", "label": "Docentes con posgrado y experiencia directiva" },
+      { "value": 24, "suffix": "", "label": "Estudiantes máximo por aula seminario" },
+      { "value": 42, "suffix": "+", "label": "Asignaturas con enfoque práctico y humanista" }
+    ],
+    "featuredDegreeEyebrow": "Oferta Educativa Fundacional",
+    "featuredDegreeSummary": "Nuestro programa insignia integra estrategia directiva, innovación digital, finanzas sostenibles y desarrollo regional para formar profesionales capaces de crear y transformar organizaciones.",
+    "featuredHighlights": [
+      "Plan de estudios actualizado con laboratorios de proyectos reales",
+      "Acompañamiento tutorial personalizado durante toda la carrera",
+      "Vinculación directa con empresas, cámaras y sector productivo de Oaxaca",
+      "Modalidad presencial con respaldo digital y horarios flexibles"
+    ],
+    "primaryCtaLabel": "Conocer la Licenciatura",
+    "secondaryCtaLabel": "Solicitar Información"
+  },
+  "university": {
+    "whoWeAreTitle": "Una nueva casa de estudios nacida para impulsar el futuro de Oaxaca",
+    "whoWeAreParagraphs": [
+      "La Universidad de Antequera es una institución de educación superior de reciente creación establecida en la ciudad de Oaxaca de Juárez. Surge como respuesta a la necesidad de contar con un espacio académico moderno, ético y profundamente conectado con los desafíos contemporáneos del desarrollo económico, social y organizacional.",
+      "Al iniciar nuestra trayectoria enfocándonos en una sola oferta educativa de excelencia, concentramos el 100% de nuestros recursos docentes, infraestructura y mentoría en ofrecer una experiencia formativa de primer nivel, cercana y sin masificación."
+    ],
+    "mission": "Formar profesionales íntegros, críticos e innovadores mediante un modelo educativo de excelencia, humanista y vinculado con la realidad regional y global, capaces de generar valor económico y bienestar social sostenible.",
+    "vision": "Consolidarnos en el sureste mexicano como una universidad referente por su calidad académica, su innovación pedagógica, su transparencia institucional y el impacto positivo de sus egresados en el desarrollo de Oaxaca y México.",
+    "institutionalObjective": "Impartir educación superior de calidad con planes de estudio pertinentes, fomentar la investigación aplicada y fortalecer el sentido ético y ciudadano de nuestra comunidad universitaria a través de una gestión moderna y accesible.",
+    "values": [
+      {
+        "title": "Excelencia Académica",
+        "description": "Buscamos el máximo rigor intelectual, actualización constante y mejora continua en cada aula y proyecto.",
+        "icon": "award"
+      },
+      {
+        "title": "Integridad y Ética",
+        "description": "Actuamos con transparencia, honestidad y responsabilidad en la toma de decisiones académicas y profesionales.",
+        "icon": "shield"
+      },
+      {
+        "title": "Innovación con Propósito",
+        "description": "Fomentamos el pensamiento creativo y el uso estratégico de la tecnología para resolver problemas reales.",
+        "icon": "sparkles"
+      },
+      {
+        "title": "Identidad y Compromiso Social",
+        "description": "Honramos nuestras raíces oaxaqueñas y promovemos el desarrollo incluyente, sostenible y respetuoso con la comunidad.",
+        "icon": "compass"
+      },
+      {
+        "title": "Cercanía Humana",
+        "description": "Creemos en una comunidad universitaria cálida donde cada estudiante es escuchado, acompañado y valorado.",
+        "icon": "users"
+      },
+      {
+        "title": "Visión Global",
+        "description": "Preparamos a nuestros estudiantes para dialogar, emprender y competir en entornos internacionales dinámicos.",
+        "icon": "globe"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "/images/hero-campus.jpg",
+        "caption": "Patio central y pabellones académicos de cantera y madera",
+        "category": "Campus"
+      },
+      {
+        "url": "/images/campus-library.jpg",
+        "caption": "Biblioteca y centro de documentación colaborativa",
+        "category": "Espacios de Estudio"
+      },
+      {
+        "url": "/images/academic-seminar.jpg",
+        "caption": "Aulas seminario diseñadas para aprendizaje activo y mentoría",
+        "category": "Vida en el Aula"
+      }
+    ]
+  },
+  "program": {
+    "name": "Licenciatura en Innovación y Gestión Empresarial",
+    "shortLabel": "LIGE",
+    "academicDegree": "Licenciado / Licenciada en Innovación y Gestión Empresarial",
+    "duration": "8 semestres (4 años)",
+    "modality": "Escolarizada Presencial",
+    "schedule": "Turno Matutino (07:30 – 13:30 h)",
+    "rvoe": "Acuerdo Institucional RVOE en trámite / Registro 2026-OAX",
+    "heroImage": "/images/academic-seminar.jpg",
+    "generalDescription": "La Licenciatura en Innovación y Gestión Empresarial prepara profesionales estrategas capaces de diseñar, dirigir y transformar empresas e instituciones mediante herramientas modernas de administración, análisis de datos, finanzas éticas, liderazgo humano y transformación digital.",
+    "objective": "Formar profesionistas con sólidas competencias directivas, financieras, tecnológicas y humanistas que lideren procesos de innovación organizacional, emprendimiento sostenible y gestión eficiente en empresas privadas, organismos públicos e iniciativas sociales.",
+    "entryProfile": [
+      "Haber concluido satisfactoriamente el nivel de educación media superior (bachillerato o equivalente).",
+      "Interés por la gestión de proyectos, el emprendimiento, la economía y la solución creativa de problemas.",
+      "Disposición para el trabajo colaborativo, la comunicación efectiva y el aprendizaje continuo.",
+      "Habilidades básicas de razonamiento lógico-matemático, comprensión lectora y manejo de herramientas digitales."
+    ],
+    "exitProfile": [
+      "Diseña estrategias empresariales innovadoras basadas en diagnóstico financiero, análisis de mercado e inteligencia de negocios.",
+      "Dirige equipos multidisciplinarios con liderazgo ético, comunicación asertiva y enfoque en resultados sostenibles.",
+      "Formula, evalúa y gestiona proyectos de inversión y emprendimiento de alto impacto regional y nacional.",
+      "Implementa procesos de transformación digital, optimización operativa y gestión del talento humano.",
+      "Aplica el marco jurídico, fiscal y de responsabilidad social vigente en la conducción de organizaciones."
+    ],
+    "curriculum": [
+      {
+        "semester": 1,
+        "title": "Fundamentos de la Gestión y Pensamiento Crítico",
+        "subjects": [
+          { "code": "IGE-101", "name": "Fundamentos de Administración Contemporánea", "credits": 8 },
+          { "code": "IGE-102", "name": "Matemáticas Aplicadas a los Negocios", "credits": 8 },
+          { "code": "IGE-103", "name": "Contabilidad Financiera Básica", "credits": 8 },
+          { "code": "IGE-104", "name": "Comunicación Académica y Pensamiento Crítico", "credits": 6 },
+          { "code": "IGE-105", "name": "Entorno Socioeconómico de Oaxaca y México", "credits": 6 }
+        ]
+      },
+      {
+        "semester": 2,
+        "title": "Análisis Económico y Entorno Organizacional",
+        "subjects": [
+          { "code": "IGE-201", "name": "Microeconomía para la Toma de Decisiones", "credits": 8 },
+          { "code": "IGE-202", "name": "Estadística Descriptiva e Inferencial", "credits": 8 },
+          { "code": "IGE-203", "name": "Costos y Presupuestos Empresariales", "credits": 8 },
+          { "code": "IGE-204", "name": "Derecho Mercantil y Corporativo", "credits": 6 },
+          { "code": "IGE-205", "name": "Metodología de la Innovación (Design Thinking)", "credits": 6 }
+        ]
+      },
+      {
+        "semester": 3,
+        "title": "Mercados, Talento y Procesos",
+        "subjects": [
+          { "code": "IGE-301", "name": "Macroeconomía y Entorno Global", "credits": 8 },
+          { "code": "IGE-302", "name": "Mercadotecnia Estratégica e Investigación de Mercados", "credits": 8 },
+          { "code": "IGE-303", "name": "Gestión Estratégica del Talento Humano", "credits": 8 },
+          { "code": "IGE-304", "name": "Sistemas de Información Gerencial", "credits": 6 },
+          { "code": "IGE-305", "name": "Ética Profesional y Responsabilidad Social", "credits": 6 }
+        ]
+      },
+      {
+        "semester": 4,
+        "title": "Finanzas Corporativas y Operaciones",
+        "subjects": [
+          { "code": "IGE-401", "name": "Finanzas Corporativas I", "credits": 8 },
+          { "code": "IGE-402", "name": "Gestión de Operaciones y Cadena de Suministro", "credits": 8 },
+          { "code": "IGE-403", "name": "Comportamiento Organizacional y Liderazgo", "credits": 6 },
+          { "code": "IGE-404", "name": "Analítica de Datos para Negocios", "credits": 8 },
+          { "code": "IGE-405", "name": "Régimen Fiscal de las Organizaciones", "credits": 6 }
+        ]
+      },
+      {
+        "semester": 5,
+        "title": "Transformación Digital y Estrategia",
+        "subjects": [
+          { "code": "IGE-501", "name": "Planeación Estratégica Corporativa", "credits": 8 },
+          { "code": "IGE-502", "name": "Ecosistemas Digitales y Comercio Electrónico", "credits": 8 },
+          { "code": "IGE-503", "name": "Finanzas Corporativas II y Valuación", "credits": 8 },
+          { "code": "IGE-504", "name": "Gestión de la Calidad y Mejora Continua", "credits": 6 },
+          { "code": "IGE-505", "name": "Inglés de Negocios I", "credits": 6 }
+        ]
+      },
+      {
+        "semester": 6,
+        "title": "Emprendimiento y Proyectos de Inversión",
+        "subjects": [
+          { "code": "IGE-601", "name": "Formulación y Evaluación de Proyectos", "credits": 8 },
+          { "code": "IGE-602", "name": "Modelos de Negocio Sostenibles y Economía Circular", "credits": 8 },
+          { "code": "IGE-603", "name": "Negociación y Resolución de Conflictos", "credits": 6 },
+          { "code": "IGE-604", "name": "Inteligencia Artificial Aplicada a la Gestión", "credits": 8 },
+          { "code": "IGE-605", "name": "Inglés de Negocios II", "credits": 6 }
+        ]
+      },
+      {
+        "semester": 7,
+        "title": "Dirección Aplicada y Vinculación",
+        "subjects": [
+          { "code": "IGE-701", "name": "Consultoría Empresarial Aplicada", "credits": 8 },
+          { "code": "IGE-702", "name": "Comercio Exterior y Logística Internacional", "credits": 8 },
+          { "code": "IGE-703", "name": "Gobierno Corporativo y Cumplimiento Normativo", "credits": 6 },
+          { "code": "IGE-704", "name": "Seminario de Investigación I", "credits": 8 },
+          { "code": "IGE-705", "name": "Optativa de Especialización I", "credits": 6 }
+        ]
+      },
+      {
+        "semester": 8,
+        "title": "Consolidación Directiva y Titulación",
+        "subjects": [
+          { "code": "IGE-801", "name": "Simulador de Alta Dirección Empresarial", "credits": 8 },
+          { "code": "IGE-802", "name": "Incubación y Aceleración de Empresas", "credits": 8 },
+          { "code": "IGE-803", "name": "Seminario de Titulación y Proyecto Integrador", "credits": 10 },
+          { "code": "IGE-804", "name": "Práctica Profesional Supervisada", "credits": 8 },
+          { "code": "IGE-805", "name": "Optativa de Especialización II", "credits": 6 }
+        ]
+      }
+    ],
+    "careerField": [
+      {
+        "area": "Dirección y Gestión Empresarial",
+        "description": "Liderazgo de áreas administrativas, planeación estratégica y dirección general en empresas locales, nacionales e internacionales."
+      },
+      {
+        "area": "Emprendimiento e Innovación",
+        "description": "Creación y escalamiento de empresas propias, startups tecnológicas y proyectos productivos sostenibles."
+      },
+      {
+        "area": "Consultoría y Transformación Digital",
+        "description": "Asesoría estratégica a PyMEs y corporativos en reingeniería de procesos, digitalización y analítica de negocio."
+      },
+      {
+        "area": "Finanzas y Evaluación de Proyectos",
+        "description": "Gestión financiera, evaluación de inversiones, control presupuestal e instituciones financieras."
+      },
+      {
+        "area": "Sector Público y Organismos Civiles",
+        "description": "Coordinación de programas de desarrollo económico, fomento productivo y administración pública moderna."
+      },
+      {
+        "area": "Gestión Comercial y Mercados Globales",
+        "description": "Dirección de marketing, expansión comercial, exportación de productos regionales y desarrollo de marca."
+      }
+    ]
+  },
+  "admissions": {
+    "announcementTitle": "Convocatoria de Admisión — Ciclo Escolar 2026–2027",
+    "announcementStatus": "Registro Abierto",
+    "announcementPeriod": "Ingreso Agosto 2026",
+    "announcementSummary": "Invitamos a las y los egresados de bachillerato interesados en cursar la Licenciatura en Innovación y Gestión Empresarial a participar en nuestro proceso de admisión para la generación fundacional.",
+    "announcementPdfUrl": "/docs/convocatoria-admision-2026.pdf",
+    "requirements": [
+      "Haber concluido el bachillerato o estar cursando el último semestre (con constancia de estudios vigente).",
+      "Contar con un promedio mínimo sugerido de 8.0 en educación media superior.",
+      "Completar el registro de aspirante y presentar la entrevista vocacional institucional.",
+      "Realizar el diagnóstico de habilidades académicas (sin carácter excluyente, diseñado para nivelación)."
+    ],
+    "documents": [
+      { "name": "Acta de nacimiento actualizada", "detail": "Original y dos copias legibles en formato reciente.", "required": true },
+      { "name": "Certificado de estudios de bachillerato", "detail": "Original legalizado (o constancia de terminación si está en trámite).", "required": true },
+      { "name": "CURP en formato actualizado", "detail": "Impresión reciente descargada del portal oficial.", "required": true },
+      { "name": "Identificación oficial vigente", "detail": "INE o pasaporte; en caso de menores de edad, credencial escolar e INE del tutor.", "required": true },
+      { "name": "Comprobante de domicilio", "detail": "Antigüedad no mayor a tres meses (agua, luz o teléfono).", "required": true },
+      { "name": "4 fotografías tamaño infantil", "detail": "Recientes, blanco y negro o a color, en papel mate.", "required": true }
+    ],
+    "importantDates": [
+      {
+        "date": "20 Nov 2026 – 15 Jun 2027",
+        "title": "Registro de Aspirantes y Recepción de Documentos",
+        "description": "Entrega digital o presencial de expediente y agendamiento de entrevista vocacional.",
+        "status": "active"
+      },
+      {
+        "date": "26 y 27 Jun 2027",
+        "title": "Evaluación Diagnóstica y Entrevista",
+        "description": "Sesión presencial en campus para conocer el perfil del aspirante y orientar su ingreso.",
+        "status": "upcoming"
+      },
+      {
+        "date": "05 Jul 2027",
+        "title": "Publicación de Resultados",
+        "description": "Notificación directa por correo institucional y publicación de folios aceptados.",
+        "status": "upcoming"
+      },
+      {
+        "date": "12 – 23 Jul 2027",
+        "title": "Periodo de Inscripción Formal",
+        "description": "Entrega de documentación original en Servicios Escolares y emisión de matrícula.",
+        "status": "upcoming"
+      },
+      {
+        "date": "16 Ago 2027",
+        "title": "Inicio de Clases y Semana de Inducción",
+        "description": "Bienvenida oficial a la generación fundacional y recorridos académicos.",
+        "status": "upcoming"
+      }
+    ],
+    "enrollmentSteps": [
+      {
+        "step": "01",
+        "title": "Solicita información y regístrate",
+        "description": "Envía tus datos desde nuestro formulario o vía WhatsApp para recibir tu folio de aspirante y guía personalizada."
+      },
+      {
+        "step": "02",
+        "title": "Integra tu expediente documental",
+        "description": "Reúne los documentos solicitados y preséntalos en el departamento de Admisiones para su validación."
+      },
+      {
+        "step": "03",
+        "title": "Entrevista y diagnóstico",
+        "description": "Participa en una conversación cercana con la coordinación académica para conocer tus metas profesionales."
+      },
+      {
+        "step": "04",
+        "title": "Confirmación e inscripción",
+        "description": "Al recibir tu carta de admisión, formaliza tu inscripción y recibe tu credencial y horario universitario."
+      }
+    ],
+    "costsAvailable": true,
+    "costsNote": "Contamos con becas institucionales por excelencia académica y convenios familiares. Los montos pueden consultarse directamente en Servicios Escolares.",
+    "costs": [
+      { "concept": "Proceso de Admisión y Diagnóstico", "amount": "$500 MXN", "frequency": "Pago único" },
+      { "concept": "Inscripción Semestral", "amount": "$3,200 MXN", "frequency": "Semestral" },
+      { "concept": "Colegiatura Mensual", "amount": "$2,850 MXN", "frequency": "5 mensualidades por semestre" }
+    ]
+  },
+  "academicLife": {
+    "introTitle": "Normatividad, calendario y agenda universitaria",
+    "introDescription": "Ponemos a disposición de nuestra comunidad estudiantil, docentes y aspirantes toda la documentación oficial en formato PDF para consulta inmediata o descarga, así como nuestra cartelera de actividades académicas.",
+    "documents": [
+      {
+        "id": "doc-reglamento",
+        "category": "Reglamento",
+        "title": "Reglamento Institucional y de Alumnos",
+        "description": "Normatividad oficial sobre derechos, obligaciones, evaluación académica, becas, titulación y convivencia universitaria.",
+        "fileUrl": "/docs/reglamento-institucional.pdf",
+        "updatedAt": "Noviembre 2026",
+        "fileSize": "PDF Oficial"
+      },
+      {
+        "id": "doc-calendario",
+        "category": "Calendario",
+        "title": "Calendario Escolar 2026–2027",
+        "description": "Fechas oficiales de inicio y fin de semestre, evaluaciones parciales, periodos vacacionales y días inhábiles.",
+        "fileUrl": "/docs/calendario-escolar-2026-2027.pdf",
+        "updatedAt": "Noviembre 2026",
+        "fileSize": "PDF Oficial"
+      },
+      {
+        "id": "doc-plan",
+        "category": "Plan de Estudios",
+        "title": "Plan de Estudios — Lic. en Innovación y Gestión Empresarial",
+        "description": "Mapa curricular completo de 8 semestres, claves de asignatura, créditos académicos y ejes formativos.",
+        "fileUrl": "/docs/plan-de-estudios-lige.pdf",
+        "updatedAt": "Noviembre 2026",
+        "fileSize": "PDF Oficial"
+      },
+      {
+        "id": "doc-convocatoria",
+        "category": "Complementario",
+        "title": "Convocatoria de Admisión y Guía del Aspirante",
+        "description": "Bases oficiales de ingreso, lista de cotejo documental y lineamientos para aspirantes de nuevo ingreso.",
+        "fileUrl": "/docs/convocatoria-admision-2026.pdf",
+        "updatedAt": "Noviembre 2026",
+        "fileSize": "PDF Oficial"
+      }
+    ],
+    "events": [
+      {
+        "id": "ev-1",
+        "date": "2026-12-04",
+        "monthLabel": "DIC",
+        "dayLabel": "04",
+        "time": "10:00 – 13:00 h",
+        "title": "Open House Institucional y Recorrido por Campus",
+        "location": "Patio Central · Campus Antequera",
+        "category": "Admisiones",
+        "speaker": "Dirección Académica y Coordinación LIGE",
+        "description": "Conoce nuestras instalaciones, conversa con los docentes fundadores y resuelve tus dudas sobre el plan de estudios y becas.",
+        "featured": true
+      },
+      {
+        "id": "ev-2",
+        "date": "2026-12-11",
+        "monthLabel": "DIC",
+        "dayLabel": "11",
+        "time": "17:00 – 19:00 h",
+        "title": "Conferencia Magistral: Innovación Empresarial desde Oaxaca hacia el Mundo",
+        "location": "Auditorio Cantera",
+        "category": "Conferencia",
+        "speaker": "Mtra. Elena Morales Vásquez · Consultora Internacional",
+        "description": "Casos reales de empresas regionales que han escalado sus modelos de negocio mediante diseño estratégico y sostenibilidad.",
+        "featured": true
+      },
+      {
+        "id": "ev-3",
+        "date": "2027-01-22",
+        "monthLabel": "ENE",
+        "dayLabel": "22",
+        "time": "11:00 – 13:30 h",
+        "title": "Taller Vivencial: Diseña tu Primer Modelo de Negocio",
+        "location": "Laboratorio de Innovación · Aula 102",
+        "category": "Taller Gratuito",
+        "speaker": "Dr. Javier Castellanos · Facultad de Gestión",
+        "description": "Sesión práctica abierta para estudiantes de preparatoria interesados en experimentar nuestra metodología de aprendizaje activo.",
+        "featured": false
+      }
+    ]
+  },
+  "contact": {
+    "address": "Calz. Porfirio Díaz 418, Col. Reforma, C.P. 68050",
+    "cityState": "Oaxaca de Juárez, Oaxaca, México",
+    "phone": "+52 (951) 501 2480",
+    "email": "admisiones@universidadantequera.edu.mx",
+    "officeHours": "Lunes a Viernes de 08:30 a 18:00 h · Sábados de 09:00 a 13:00 h",
+    "whatsappNumber": "529515012480",
+    "whatsappMessage": "Hola, me gustaría recibir información sobre la Licenciatura en Innovación y Gestión Empresarial y el proceso de admisión.",
+    "mapsEmbedUrl": "https://www.google.com/maps?q=Oaxaca+de+Juarez,+Oaxaca,+Mexico&output=embed",
+    "mapsDirectionsUrl": "https://www.google.com/maps/search/?api=1&query=Oaxaca+de+Juarez,+Oaxaca,+Mexico",
+    "socials": {
+      "facebook": "https://facebook.com",
+      "instagram": "https://instagram.com",
+      "linkedin": "https://linkedin.com",
+      "youtube": "https://youtube.com"
+    }
+  },
+  "privacy": {
+    "lastUpdated": "20 de noviembre de 2026",
+    "responsibleEntity": "Universidad de Antequera A.C.",
+    "summary": "En cumplimiento con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, la Universidad de Antequera protege y salvaguarda los datos personales recabados a través de este portal institucional.",
+    "clauses": [
+      {
+        "title": "1. Identidad y domicilio del responsable",
+        "content": "Universidad de Antequera A.C., con domicilio en Calz. Porfirio Díaz 418, Col. Reforma, C.P. 68050, Oaxaca de Juárez, Oaxaca, es responsable del tratamiento, uso y protección de los datos personales que usted nos proporcione."
+      },
+      {
+        "title": "2. Datos personales que recabamos",
+        "content": "A través de nuestro formulario de contacto y canales de atención recabamos datos de identificación y contacto tales como nombre completo, correo electrónico, número telefónico y comentarios relacionados con su solicitud de información académica o de admisiones."
+      },
+      {
+        "title": "3. Finalidades del tratamiento",
+        "content": "Sus datos personales serán utilizados exclusivamente para: atender solicitudes de información sobre nuestra oferta educativa, dar seguimiento a procesos de admisión, enviar convocatorias vigentes y agendar citas informativas en campus."
+      },
+      {
+        "title": "4. Derechos ARCO y revocación del consentimiento",
+        "content": "Usted tiene derecho a Acceder, Rectificar, Cancelar u Oponerse (Derechos ARCO) al tratamiento de sus datos personales enviando una solicitud al correo electrónico admisiones@universidadantequera.edu.mx con el asunto 'Derechos ARCO'."
+      },
+      {
+        "title": "5. Cambios al aviso de privacidad",
+        "content": "Cualquier modificación a este aviso de privacidad será publicada oportunamente en esta misma sección del portal institucional."
+      }
+    ]
+  },
+  "seo": {
+    "defaultTitle": "Universidad de Antequera | Educación Superior en Oaxaca",
+    "defaultDescription": "Portal institucional de la Universidad de Antequera en Oaxaca. Conoce nuestra Licenciatura en Innovación y Gestión Empresarial, admisiones, calendario escolar y vida académica.",
+    "keywords": "universidad en Oaxaca, licenciatura Oaxaca, educación superior, innovación y gestión empresarial, admisiones universidad Oaxaca"
+  }
+}

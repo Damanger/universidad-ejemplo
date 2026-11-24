@@ -1,0 +1,107 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+import type { SiteContent } from '../types/content';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppWidget from '../components/WhatsAppWidget.astro';
+
+interface Props {
+  content: SiteContent;
+  title?: string;
+  description?: string;
+  transparentHero?: boolean;
+  hideChrome?: boolean;
+}
+
+const {
+  content,
+  title,
+  description,
+  transparentHero = false,
+  hideChrome = false,
+} = Astro.props;
+
+const pageTitle = title ? `${title} | ${content.brand.name}` : content.seo.defaultTitle;
+const pageDescription = description || content.seo.defaultDescription;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollegeOrUniversity',
+  name: content.brand.name,
+  description: pageDescription,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: content.contact.address,
+    addressLocality: 'Oaxaca de Juárez',
+    addressRegion: 'Oaxaca',
+    addressCountry: 'MX',
+  },
+  telephone: content.contact.phone,
+  email: content.contact.email,
+};
+---
+
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={content.seo.keywords} />
+    <meta name="theme-color" content={content.brand.colors.primary} />
+
+    <!-- Open Graph SEO -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={content.home.heroImage} />
+    <meta property="og:locale" content="es_MX" />
+
+    <!-- Google Fonts: Cormorant Garamond + Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <ClientRouter />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <style
+      define:vars={{
+        brandPrimary: content.brand.colors.primary,
+        brandPrimaryDark: content.brand.colors.primaryDark,
+        brandAccent: content.brand.colors.accent,
+        brandSurface: content.brand.colors.surface,
+      }}
+    >
+      :root {
+        --brand-primary: var(--brandPrimary);
+        --brand-primary-dark: var(--brandPrimaryDark);
+        --brand-accent: var(--brandAccent);
+        --brand-surface: var(--brandSurface);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col selection:bg-[#C69D48]/30 selection:text-[#0C1E35]">
+    {!hideChrome && <div class="scroll-progress-bar" aria-hidden="true"></div>}
+    {!hideChrome && <Header content={content} transparentHero={transparentHero} />}
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    {!hideChrome && <Footer content={content} />}
+    {!hideChrome && <WhatsAppWidget content={content} />}
+
+    <script>
+      import { initMicroanimations } from '../scripts/microanimations';
+      document.addEventListener('astro:page-load', () => {
+        initMicroanimations();
+      });
+    </script>
+  </body>
+</html>
